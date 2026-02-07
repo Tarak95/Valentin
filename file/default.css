@@ -1,86 +1,105 @@
+/* All-Device Responsive CSS */
 body {
-  margin: 0;
-  padding: 0;
-  background-image: url('../img2.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  font-size: 14px;
-  font-family: sans-serif;
-  color: white;
-  overflow: auto;
+    margin: 0;
+    padding: 0;
+    /* আপনার ব্যাকগ্রাউন্ড ইমেজ */
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../img2.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    overflow: hidden; /* স্ক্রলবার বন্ধ রাখবে */
+    width: 100%;
+    height: 100vh;
 }
-a {
-  color: white;
-  font-size: 14px;
-}
+
 #main {
-  width: 100%;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
+
 #wrap {
-  position: relative;
-  margin: 0 auto;
-  width: 1100px;
-  height: 680px;
-  margin-top: 10px;
+    position: relative;
+    width: 100%;
+    max-width: 1100px; /* পিসি স্ক্রিনে সর্বোচ্চ সাইজ */
+    height: 100vh;
+    margin: 0 auto;
 }
+
 #text {
-  width: 272px;
-  height: 560px;
-  left: 188px;
-  top: 80px;
-  position: absolute;
+    position: absolute;
+    z-index: 10;
+    width: 90%;
+    max-width: 300px;
+    left: 10%;
+    top: 10%; /* কম্পিউটার স্ক্রিনের পজিশন */
 }
+
 #code {
-  display: none;
-  color: rgb(196, 255, 255);
-  font-size: 16px;
-  margin-top: 70px;
-  line-height: 25px;
-  font-size: larger;
-  font-weight: bolder;
+    display: none;
+    color: #c4ffff;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    font-weight: bold;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
 }
+
 #clock-box {
-  position: absolute;
-  left: 60px;
-  top: 550px;
-  font-size: 28px;
-  display: none;
+    position: absolute;
+    bottom: 8%; /* স্ক্রিনের নিচ থেকে দূরত্ব */
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 1.2rem;
+    display: none;
+    z-index: 10;
 }
-#clock-box a {
-  font-size: 28px;
-  text-decoration: none;
-}
-#clock {
-  margin-left: 48px;
-}
+
 #clock .digit {
-  font-size: 64px;
+    font-size: 2.8rem; /* বড় বড় সংখ্যা দেখাবে */
+    font-weight: bold;
+    color: #ffeb3b; /* উজ্জ্বল হলুদ রঙ */
 }
+
 #canvas {
-  margin: 0 auto;
-  width: 1100px;
-  height: 680px;
-}
-#error {
-  margin: 0 auto;
-  text-align: center;
-  margin-top: 60px;
-  display: none;
-}
-.hand {
-  cursor: pointer;
-}
-.say {
-  margin-left: 5px;
-}
-.space {
-  margin-right: 150px;
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto !important; /* স্ক্রিন অনুযায়ী গাছ ছোট হবে */
+    z-index: 1;
 }
 
-#message-box{
-  position: absolute;
-  margin-top:450px;
-  font-size: 25px;
-  font-family: monospace;
+/* --- মোবাইলের জন্য স্পেশাল সেটিংস (Media Query) --- */
+@media (max-width: 768px) {
+    #text {
+        width: 90%;
+        left: 5%;
+        top: 5%; /* মোবাইলে লেখা আরেকটু উপরে উঠবে */
+        text-align: center;
+    }
+    
+    #code {
+        font-size: 0.95rem; /* ছোট স্ক্রিনে ফন্ট একটু ছোট হবে */
+    }
 
+    #clock .digit {
+        font-size: 1.8rem; /* মোবাইলে ঘড়ির সংখ্যা ছোট হবে যাতে স্ক্রিনে ধরে */
+    }
+
+    #clock-box {
+        bottom: 5%;
+        font-size: 1rem;
+    }
+    
+    #clock {
+        margin-left: 0;
+    }
 }
+
+.hand { cursor: pointer; }
+.say { margin-left: 5px; }
